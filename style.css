@@ -1,0 +1,65 @@
+body{
+    background-image: url("https://i.pinimg.com/236x/85/70/f6/8570f6339d3189c96e340d47a581d3b8.jpg")
+}
+h1{
+    text-align: center;
+    background-color: #006054;
+    color: white;
+    padding:10px;
+    border-radius: 50%;
+}
+.main-part{
+    margin-left: 150px;
+}
+.input{
+    width:350px;
+    font-size:2em;
+    margin-left: 2em;
+    
+    
+}
+.show-status{
+    margin-left: 300px;
+    margin-top: 20px;
+}
+.chatbox{
+    width: 500px;
+    margin-left: 300px;
+    margin-top: 50px;
+    
+}
+.text{
+    height: 200px;
+    border: 1px solid goldenrod;
+    border-radius: 15px 50px;
+}
+.player1, .common-area, .player2{
+    border: 2px solid goldenrod;
+    margin-left: 2em;
+    width: 250px;
+    height: 200px;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+.input-name{
+    width:200px;
+    font-size:2em;
+}
+#start{
+    margin-left: 15em;
+    margin-top: -4.3em;
+    height: 30px;
+    background-color:#006054;
+    color: white;
+}
+.three-parts{
+    margin-top:-2em;
+}
+.send{
+    background-color: #006054;
+    color:white;
+}
+#player1-name, #player2-name{
+    font-size: 20px;
+    text-align: center;
+}
