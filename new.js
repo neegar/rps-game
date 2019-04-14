@@ -1,4 +1,3 @@
-$("#hidden").hide()
 var firebaseConfig = {
     apiKey: "AIzaSyDPI7TXsFfv1W45opH8ud1tnttBP9lef8M",
     authDomain: "rps-game-2934a.firebaseapp.com",
@@ -7,31 +6,41 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
+
+var player1 = null;
+var player2 = null;
+
 database.ref().on("value", function (snapshot) {
-   // $("#player1-name").text("")
+    // $("#player1-name").text("")
     var cv = snapshot.val()
-    $("#player1-name").text(cv.player1.name)
-    //$("#player2-name").text(cv.player2.name)
+
+    if (cv) {
+        if (cv.player1) {
+            player1 = cv.player1;
+            $("#player1-name").text(cv.player1.name)
+        }
+
+        if (cv.player2) {
+            player2 = cv.player2;
+            $("#player2-name").text(cv.player2.name)
+        }
+    }
 })
+
 $("#start").on("click", function (event) {
     event.preventDefault();
 
-    database.ref().once("value", function (snapshot) {
-        console.log(snapshot.val().player1.name)
-        console.log(snapshot.val().player2.name)
-        if (!snapshot.val().player1.name) {
-            var name = $(".input-name").val().trim()
-            database.ref("player1").set({
-                name: name
-            })
-        } else {
-            var name = $(".input-name").val().trim()
-            database.ref("player2").set({
-                name: name
-            })
-        }
-
-    })
+    if (!player1) {
+        var name = $(".input-name").val().trim()
+        database.ref("player1").set({
+            name: name
+        })
+    } else if (!player2) {
+        var name = $(".input-name").val().trim()
+        database.ref("player2").set({
+            name: name
+        })
+    }
 })
         // console.log(database)
    // $("#player1-name").text(name)
