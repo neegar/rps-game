@@ -18,11 +18,13 @@ database.ref().on("value", function (snapshot) {
         if (cv.player1) {
             player1 = cv.player1;
             $("#player1-name").text(cv.player1.name)
+            $("#items").removeClass('hidden')
         }
 
         if (cv.player2) {
             player2 = cv.player2;
             $("#player2-name").text(cv.player2.name)
+            
         }
     }
 })
@@ -35,13 +37,25 @@ $("#start").on("click", function (event) {
         database.ref("player1").set({
             name: name
         })
+      
     } else if (!player2) {
         var name = $(".input-name").val().trim()
         database.ref("player2").set({
             name: name
+    
         })
+        
+        $(".player1").css("border", "2px solid #590000")
     }
+    
 })
-        // console.log(database)
+/*reset()
+function reset(){
+    database.ref().set({
+     player1=null,
+     player2=null,
+  })
+}
+*/
+// console.log(database)
    // $("#player1-name").text(name)
-//  })
